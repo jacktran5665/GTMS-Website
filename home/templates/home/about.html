@@ -1,0 +1,71 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<div class="aboutWrapper">
+  <div class="aboutTitle">Welcome!</div>
+  <img src="{% static 'img/popcorn.png' %}" style="height: 350px"/>
+  <div class="aboutText">
+    <b>Georgia Tech Movie Store</b> offers a vast digital library
+     that spans across genres, ensuring there's
+     something for every movie lover. Browse our
+     extensive collection of films, including the
+     latest releases, timeless classics, and hidden
+     gems. With just a few clicks, you can rent or
+     purchase your favorite titles and instantly
+     stream them in high-definition quality. Discover the convenience of our digital platform,
+    where you have the flexibility to watch movies
+    on your preferred device, whether it's a smart
+    TV, tablet, or smartphone. With our intuitive
+    search and recommendation features, finding your
+    next movie night pick has never been easier!
+  </div>
+
+  <a href="{% url 'movies.index' %}" style="text-decoration: none;" class="exploreBtn">Explore</a>
+
+  <div class="aboutTitle2">Meet the Team</div>
+
+  <div class="meetTheTeam">
+    <div class="teamHeader">
+      <div class="teamHeaderText">Scrum Master</div>
+      <div class="teamHeaderText">Product Owner</div>
+      <div class="teamHeaderText2">Developers</div>
+    </div>
+
+    <div class="membCardWrapper">
+      <div class="membCard">
+        <img class="membImg" src="https://cdn.discordapp.com/avatars/432677468357394442/3713513c575a62f96d5e4e4cf0804a40.webp?"/>
+        <div class="membName">Roy Chung</div>
+      </div>
+
+      <div class="membCard">
+        <img class="membImg" src="	https://cdn.discordapp.com/avatars/363745709943685140/fd91a76c25c853a89ab2fe0adfe03d3a.webp?"/>
+        <div class="membName">Duy Duc Do</div>
+      </div>
+
+      <div class="developers">
+        <div class="membCard">
+          <img class="membImg" src="	https://cdn.discordapp.com/avatars/536145388697026571/cb8a6e496cda39e9dd4cb55dd4fb459d.webp?"/>
+          <div class="membName">Jubi Park</div>
+          <div class="membDescr">Frontend</div>
+        </div>
+  
+        <div class="membCard">
+          <img class="membImg" src="	https://cdn.discordapp.com/avatars/317978208672940034/5e7d264933ef370d67c176cc80a835d7.webp?"/>
+          <div class="membName">Austin Zhang</div>
+          <div class="membDescr">Backend</div>
+        </div>
+  
+        <div class="membCard">
+          <img class="membImg" src="	https://cdn.discordapp.com/avatars/334421256130658315/de345c69b1850ed0395a3fb4108d409b.webp?"/>
+          <div class="membName">Jack Tran</div>
+          <div class="membDescr">Backend</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="credit">@Georgia Institute of Technology</div>
+  <div class="credit" style="margin-bottom:20px">CS 2340: Objects and Design</div>
+    
+
+    </div>
+</div>
+{% endblock content %}

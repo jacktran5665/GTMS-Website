@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="divisionWrapper">
+  <div class="logsignWrapper">
+    <div id="logintitle">Sign Up!</div>
+
+    <form method="POST">
+      {% csrf_token %}
+
+      <div>
+        {% for field in template_data.form %}
+        <div class="form-group">
+          {% if field.name == 'first_name' %}
+            <div class="securityLabel">Security Question</div>
+          {% endif %}
+          {{ field }}
+          {% if field.errors %}
+          <div class="error-message">
+            {% for error in field.errors %} {{ error }} {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+
+      <button type="submit" class="loginbutton" data-text="Sign up">
+        Sign Up
+      </button>
+    </form>
+  </div>
+
+  <div class="rightWrapper">
+    <div>
+      <img
+        src="{% static 'img/popcorn.png' %}"
+        style="margin-right: 300px; height: 400px"
+      />
+    </div>
+    <a class="largeName" href="{% url 'movies.index' %}" style="text-decoration: none;">GT Movie Store</a>
+  </div>
+</div>
+{% endblock content %}

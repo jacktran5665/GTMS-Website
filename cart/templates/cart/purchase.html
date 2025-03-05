@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<div class="purchaseWrapper">
+
+        <img src="{% static 'img/pinkpop.png' %}" style="width:300px; margin-bottom: 20px"/>
+        <div class="purchaseTitle">Purchase Completed</div>
+
+        <div class="purchaseText">
+          Congratulations! Order number is:
+          <b>#{{ template_data.order_id }}</b>
+        </div>
+
+  </div>
+{% endblock content %}

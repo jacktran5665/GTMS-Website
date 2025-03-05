@@ -1,0 +1,64 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<div class="divisionWrapper">
+  <div class="logsignWrapper">
+    <div id="logintitle">Welcome!</div>
+    {% if template_data.error %}
+    <div class="alert alert-danger" role="alert">{{ template_data.error }}</div>
+    {% endif %}
+    <form method="POST">
+      {% csrf_token %}
+      <div>
+        <input
+          id="userinput"
+          id="username"
+          type="text"
+          name="username"
+          placeholder="Enter your username"
+          required
+          autocomplete="username"
+          class="form-control"
+        />
+      </div>
+      <p>
+        <input
+          id="userinput"
+          id="password"
+          type="password"
+          name="password"
+          placeholder="Enter your password"
+          required
+          autocomplete="current-password"
+          class="form-control"
+        />
+      </p>
+
+      <div id="buttonWrapper">
+        <button type="submit" class="loginbutton" data-text="Log in">
+          Log in
+        </button>
+
+        <div id="resetRow">
+          <a class="nav-link goreset" href="{% url 'accounts.reset' %}"
+            >Forgot password?</a>
+        </div>
+        <div id="signupRow">
+          <div>Don't have an account?</div>
+          <a class="nav-link gosignup" href="{% url 'accounts.signup' %}"
+            >Sign up now!</a>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+  <div class="rightWrapper">
+    <div>
+      <img
+        src="{% static 'img/popcorn.png' %}"
+        style="margin-right: 300px; height: 400px"
+      />
+    </div>
+    <a class="largeName" href="{% url 'movies.index' %}" style="text-decoration: none;">GT Movie Store</a>
+  </div>
+</div>
+{% endblock content %}

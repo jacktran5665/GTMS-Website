@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="divisionWrapper">
+  <div class="logsignWrapper">
+    <div id="logintitle" style="color:#625772">Reset Password</div>
+
+    <form method="POST">
+      {% csrf_token %}
+      
+      <!-- Username input -->
+      <input placeholder="Enter your username" id="userinput" style="border: 3px solid #625772" type="text" name="username" required>
+      
+      <!-- New password input -->
+      <input placeholder="Enter your new password" id="userinput" style="border: 3px solid #625772" type="password" name="new_password" required>
+      
+      <!-- Security question input -->
+      {% if form.security_answer %}
+        <div style="margin-top: 10px; display:flex; flex-direction: column">
+          <label for="security_answer" style="color:#625772;margin-left: 10px">2 Factor Authentication</label>
+          <input placeholder="Your favorite movie" id="userinput" style="border: 3px solid #625772" type="text" name="security_answer" required>
+        </div>
+      {% endif %}
+      
+      <button type="submit" class="loginbutton" data-text="Save">Save</button>
+    </form>
+
+    {% if template_data.error %}
+      <p style="color:red;">{{ template_data.error }}</p>
+    {% endif %}
+  </div>
+
+  <div class="rightWrapper" style="background-color: #625772;">
+    <div>
+      <img src="{% static 'img/popcorn.png' %}" style="margin-right: 300px; height: 400px" />
+    </div>
+    <a class="largeName" href="{% url 'movies.index' %}" style="text-decoration: none;">GT Movie Store</a>
+  </div>
+</div>
+{% endblock content %}

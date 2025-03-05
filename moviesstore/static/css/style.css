@@ -1,0 +1,708 @@
+body {
+  overflow: auto;
+  background-color: #fefaec;
+}
+
+.headerWrapper {
+  background-color: #fefaec;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-right: 70px;
+  padding-left: 150px;
+  padding-top: 10px;
+}
+
+
+.logoWrapper{
+  width: 150px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.naviagorDiv {
+  font-size: 12pt;
+  font-family: "Inter";
+  color: #f38181;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 80px;
+}
+
+.navicons {
+  margin-right: 10px;
+}
+
+.navlogbtn{
+  font-size: 16px;
+  font-family: "Inter";
+  
+  border: 2px solid #f38181;
+  width: 60px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 10px;
+}
+
+.navlogbtn:hover{
+  background-color: #f38181;
+  color: #fefaec;
+
+  transition: 0.3s;
+}
+
+.divisionWrapper {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+
+  box-sizing: border-box;
+}
+
+.logsignWrapper {
+  background-color: #fefaec;
+
+  padding-left: 200px;
+  padding-top: 140px;
+  padding-bottom: 100px;
+
+  flex: 1; /* Both sections take 50% of the width */
+  height: 100%;
+}
+
+.rightWrapper {
+  background-color: #f38181;
+  flex: 1;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.largeName {
+  font-size: 100pt;
+  font-family: "Passion One";
+  width: 300px;
+  margin-bottom: 50px;
+  margin-right: 50px;
+
+  text-align: right;
+  line-height: 0.8;
+  color: #fefaec;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  cursor: pointer;
+}
+
+#logintitle {
+  font-size: 70pt;
+  font-family: "Passion One";
+  color: #f38181;
+}
+
+#userinput {
+  width: 470px;
+  height: 50px;
+  font-size: 16pt;
+  border-radius: 30px;
+  border: 3px solid #f38181;
+
+  padding-left: 30px;
+  margin-bottom: 18px;
+
+  font-family: "Inter";
+
+  background-color: #fefaec;
+}
+
+/* Button Color Change ===========> */
+.loginbutton {
+  font-size: 16pt;
+  font-family: "Inter";
+  font-weight: 600;
+
+  width: 470px;
+  height: 50px;
+  margin-top: 30px;
+  border-radius: 30px;
+  border: 3px solid #625772;
+  background-color: #a9eee6;
+  color: #625772;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  position: relative;
+  overflow: hidden;
+  transition: border 0.4s ease-in-out, background-color 0.4s ease-in-out;
+}
+
+/* Animation */
+.loginbutton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #625772;
+  transition: width 0.4s ease-in-out;
+  z-index: 1;
+}
+
+/* fill up when hovered */
+.loginbutton:hover::before {
+  width: 100%;
+}
+
+.loginbutton::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #a9eee6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  z-index: 2;
+}
+
+.loginbutton:hover::after {
+  opacity: 1;
+}
+
+.loginbutton span {
+  position: relative;
+  z-index: 3;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.loginbutton:hover span {
+  opacity: 0;
+}
+/* ================== */
+
+#buttonWrapper {
+  width: 470px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#signupRow {
+
+  font-size: 12px;
+  color: grey;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.gosignup {
+  margin-left: 8px;
+  color: #f38181;
+}
+.gosignup:hover {
+  color: #f38181;
+  text-decoration: underline;
+  transition: 0.5s;
+}
+
+.goreset {
+  font-size: 12px;
+  color: grey;
+  margin-top: 13px;
+}
+.goreset:hover {
+  color: #f38181;
+  text-decoration: underline;
+  transition: 0.4s;
+}
+
+#id_username {
+  width: 470px;
+  height: 50px;
+  font-size: 16pt;
+  border-radius: 30px;
+  border: 3px solid #f38181;
+
+  padding-left: 30px;
+  margin-bottom: 18px;
+
+  font-family: "Inter";
+
+  background-color: #fefaec;
+}
+
+#id_password1 {
+  width: 470px;
+  height: 50px;
+  font-size: 16pt;
+  border-radius: 30px;
+  border: 3px solid #f38181;
+
+  padding-left: 30px;
+  margin-bottom: 18px;
+
+  font-family: "Inter";
+
+  background-color: #fefaec;
+}
+
+#id_password2 {
+  width: 470px;
+  height: 50px;
+  font-size: 16pt;
+  border-radius: 30px;
+  border: 3px solid #f38181;
+
+  padding-left: 30px;
+  margin-bottom: 18px;
+
+  font-family: "Inter";
+
+  background-color: #fefaec;
+}
+
+.security-question-input {
+  width: 470px;
+  height: 50px;
+  font-size: 16pt;
+  border-radius: 30px;
+  border: 3px solid #fbbcbc;
+
+  padding-left: 30px;
+  margin-bottom: 18px;
+
+  font-family: "Inter";
+
+  background-color: #fefaec;
+}
+
+.securityLabel{
+  font-size:14px;
+  font-family: "Inter";
+  color:#625772;
+
+  margin-left: 10px;
+}
+
+.searchWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchInput {
+  border: none;
+  border-bottom: 1px solid #f38181;
+  width: 450px;
+  background-color: #fefaec;
+  outline: none;
+}
+
+/* Movie List =================> */
+
+.pageTitle {
+  font-size: 40pt;
+  font-family: "Passion One";
+  color: #f38181;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.moviesWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 40px 20px;
+}
+
+.movieCard {
+  width: 200px;
+  height: 295px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-right: 10px;
+  margin-left: 10px;
+
+  border: 2px solid #625772;
+  border-radius: 10px;
+  background-color: #fefaec;
+
+  color: #625772;
+
+  padding: 10px;
+}
+
+.movieName {
+  font-family: "Inter";
+  font-size: 16px;
+
+  width: 170px;
+  color: #625772;
+
+  text-decoration: none;
+}
+
+.movieCard:hover {
+  border: 2px solid #f38181;
+  box-shadow: 10px 10px 2px 1px #eed4d4;
+  transition: 0.3s;
+  color: #f38181;
+}
+
+.movieName:hover {
+  color: #f38181;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+/* Movie Show Page ======================> */
+.movieDetailWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.innerWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.movieDetailTitle {
+  font-size: 37px;
+  font-family: "Inter";
+  font-weight: 650;
+  color: #625772;
+}
+
+.infoBox {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 20px;
+}
+
+.infoInner {
+  width: 175px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quantity-input {
+  width: 55px;
+  border: none;
+  border-bottom: 2px solid #625772;
+  background-color: #fefaec;
+  border-radius: 0px;
+}
+
+.infoText {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.description {
+  font-size: 15px;
+}
+
+.submitBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid #6c757d;
+  border-radius: 10px;
+  background-color: #fefaec;
+
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.submitBtn:hover {
+  color: #fefaec;
+  border: 1px solid #6c757d;
+  background-color: #6c757d;
+  transition: 0.4s;
+}
+
+.list-group {
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.list-group-item {
+  background-color: #fefaec;
+}
+
+.reviewHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* Purchase Completed */
+.purchaseWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 130px;
+}
+
+.purchaseTitle {
+  font-family: "Passion One";
+  font-size: 60px;
+  color:#f38181;
+}
+
+.purchaseText {
+  font-family: "Inter";
+  font-size: 14px;
+  color:#5f5f5f;
+}
+
+
+
+/* About Page ================> */
+.aboutWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #625772;
+}
+
+.aboutTitle{
+  margin-top: 20px;
+  font-size: 80pt;
+  font-family: "Passion One";
+  color: #a9eee6;
+}
+
+.aboutTitle2{
+  margin-top: 40px;
+  font-size: 40pt;
+  font-family: "Passion One";
+  color: #fefaec;
+}
+
+.aboutSub{
+  font-size: 30pt;
+  font-family: "Passion One";
+  color: #fefaec;
+  margin-top: -50px;
+}
+
+.aboutText{
+  font-family: "Inter";
+  font-size: 16px;
+  margin-top: 10px;
+  width: 1200px;
+  color: #fefaec;
+
+  margin-bottom: 30px;
+}
+
+.exploreBtn {
+  width: 400px;
+  height: 50px;
+
+  font-family: "Passion One";
+  font-size: 30px;
+
+  border-radius: 40px;
+  background-color: #fefaec;
+  color: #625772;
+
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 50px;
+}
+
+.exploreBtn:hover {
+  background-color: #a9eee6;
+  color: #625772;
+  transition: 0.4s;
+}
+
+.aboutUsWrapper{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 100px;
+}
+
+.meetTheTeam {
+  width: 1200px;
+  height: 300px;
+
+  border-radius : 50px;
+  border: 3px solid #fefaec;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 70px;
+}
+
+.membCardWrapper{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 1100px;
+}
+
+.membCard{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+}
+
+.membImg{
+  width:100px;
+  height: 100px;
+  object-fit: cover;
+
+  border-radius: 50%;
+  margin-bottom: 15px;
+
+  outline: 1.5px solid #fefaec; /* Define the outline color and thickness */
+  outline-offset: 5px; /* Creates spacing between the image and the outline */
+  display: block; 
+}
+
+.membName{
+  font-family: "Inter";
+  font-size: 18px;
+  color: #fefaec;
+} 
+
+.membDescr{
+  width: 140px;
+  font-family: "Inter";
+  font-size: 14px;
+  color: #c3bad2;
+
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.teamHeader{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 1100px;
+
+  margin-bottom: 20px;
+}
+
+.teamHeaderText {
+  font-family: "Inter";
+  font-size: 16px;
+  color: #a9eee6;
+
+  border-bottom: 2px solid #a9eee6;
+  width: 180px;
+  height: 30px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.teamHeaderText2{
+  font-family: "Inter";
+  font-size: 16px;
+  color: #a9eee6;
+
+  border-bottom: 2px solid #a9eee6;
+  width: 540px;
+  height: 30px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.developers{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 530px;
+
+  padding-top: 10px;
+}
+
+.credit{
+  font: size 14px;
+  font-family: "Inter";
+  color: #897e9b;
+} 

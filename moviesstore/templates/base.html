@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %} 
+  <head>
+    <title>GTMS</title>
+
+    <!-- font settings  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Irish+Grover&family=Passion+One:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Irish+Grover&family=Passion+One:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/
+      css2?family=Poppins:wght@300;400;500;600;700&display=
+      swap"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width,
+      initial-scale=1"
+    />
+  </head>
+  <body>
+    {% if 'login' not in request.path and 'about' not in request.path and 'signup' not in request.path and 'reset' not in request.path %}
+    <div>
+      <div class="headerWrapper">
+        <div class="logoWrapper">
+          <a class="navbar-brand" href="{% url 'movies.index' %}">
+            <img src="{% static 'img/logo.png' %}" alt="logo" height="40" />
+          </a>
+          <a class="nav-link navicons" href="{% url 'home.about' %}">
+            <img src="{% static 'img/about.png' %}" style="height: 20px" />
+          </a>
+      </div>
+
+        <form method="GET">
+          <div class="input-group searchWrapper">
+            <input type="text" class="searchInput" name="search" />
+            <button class="btn" type="submit">
+              <img src="{% static 'img/search.png' %}" style="height: 23px" />
+            </button>
+          </div>
+        </form>
+
+        <div class="navbar-nav navbar-ml naviagorDiv">
+          <a class="nav-link me-4 navicons" href="{% url 'movies.index' %}">
+            <img src="{% static 'img/movies.png' %}" style="height: 23px" />
+          </a>
+          
+
+          {% if user.is_authenticated %}
+          <a class="nav-link me-4 navicons" href="{% url 'cart.index' %}">
+            <img src="{% static 'img/cart.png' %}" style="height: 23px" />
+          </a>
+          <a class="nav-link navicons" href="{% url 'accounts.orders' %}">
+            <img
+              src="{% static 'img/order.png' %}"
+              style="height: 23px; margin-right: 10px"
+            />
+          </a>
+          <a class="nav-link navicons" href="{% url 'accounts.logout' %}">
+            <img src="{% static 'img/logout.png' %}" style="height: 23px" />
+          </a>
+
+          {% else %}
+          <!-- <a class="nav-link navicons" href="{% url 'accounts.login' %}">
+            <img src="{% static 'img/login.png' %}" style="height: 23px" />
+          </a> -->
+          <a class="nav-link navicons" href="{% url 'accounts.login' %}">
+            <div class="navlogbtn">Log in</div>
+          </a>
+          {% endif %}
+        </div>
+      </div>
+      {% endif %}
+    </div>
+    {% block content %} {% endblock content %}
+  </body>
+</html>

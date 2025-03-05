@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<div class="p-3">
+  <div class="pageTitle">Movie List</div>
+  <!-- Search Bar relocated to the header in base.html -->
+  <!-- <form method="GET">
+          <div class="input-group searchWrapper">
+            <input type="text" class="form-control searchInput" name="search" />
+            <button class="btn" type="submit">
+              <img src="{% static 'img/search.png' %}" style="height: 23px" />
+            </button>
+          </div>
+        </form> -->
+  <div class="moviesWrapper">
+    {% for movie in template_data.movies %}
+    <div class="movieCard">
+      <img
+        src="{{ movie.image.url }}"
+        style="
+          height: 240px;
+          width: auto;
+          object-fit: cover;
+          border-radius: 10px;
+        "
+      />
+      <div class="text-center">
+        <a href="{% url 'movies.show' id=movie.id %}" class="movieName">
+          {{ movie.name }}
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,117 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<div class="p-3" style="margin-top:30px; font-family:Inter">
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-md-6 mx-auto mb-3">
+
+        <div class="movieDetailTitle">{{ template_data.movie.name }}</div>
+        <hr />
+
+        <div class="infoBox">
+          <div class="infoText">Description</div>
+          <div>{{template_data.movie.description}}</div>
+        </div>
+
+        <div class="infoBox">
+          <div class="infoText" >Price</div>
+          <div class="description">${{template_data.movie.price}}</div>
+        </div>
+
+       <p class="card-text">
+          <form method="post"
+            action="{% url 'cart.add' id=template_data.movie.id %}">
+            <div class="row">
+              {% csrf_token %}
+              <div class="col-auto">
+                <div class="infoBox">
+                  <div class="infoText">Quantity</div>
+
+                  <div class="infoInner">
+                    <input type="number" min="1" max="10"
+                      class="form-control quantity-input"
+                      name="quantity" value="1">
+
+                    <button class="submitBtn" style="width: 105px;height: 30px"
+                      type="submit">Add to cart</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </form>
+        </p>
+
+
+        <div class="infoText">Reviews</div>
+        <ul class="list-group">
+          {% for review in template_data.reviews %}
+          <li class="list-group-item pb-3 pt-3">
+
+            <div class="reviewHeader">
+              <div class="card-title" style="font-size: 16px; font-weight: 600; color:#f38181">{{ review.user.username }}</div>
+              <div class="card-subtitle mb-2 text-muted" style="font-size: 12px;">{{ review.date }}</div>
+            </div>
+
+            <p class="card-text">{{ review.comment }}</p>
+
+
+            {% if user.is_authenticated and user == review.user %}
+            <a
+              class="btn"
+              style="background-color: #897e9b; color: white"
+              href="{% url 'movies.edit_review' id=template_data.movie.id review_id=review.id %}"
+              >Edit
+            </a>
+            <a
+              class="btn"
+              style="background-color: grey; color:white"
+              href="{% url 'movies.delete_review' id=template_data.movie.id review_id=review.id %}"
+              >Delete
+            </a>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+
+
+        {% if user.is_authenticated %}
+        <div class="container mt-4">
+                <div class="card-body">
+
+                  <form
+                    method="POST"
+                    action="{% url 'movies.create_review' id=template_data.movie.id %}"
+                  >
+                    {% csrf_token %}
+                    <p>
+                      <label for="comment">Add a review</label>
+                      <textarea
+                        name="comment"
+                        required
+                        class="form-control"
+                        id="comment"
+                      ></textarea>
+                    </p>
+                    <div class="text-center">
+                      <button type="submit" class="submitBtn">
+                        Post
+                      </button>
+                    </div>
+                  </form>
+                </div>
+        </div>
+        {% endif %}
+
+
+      </div>
+      <!-- <div class="col-md-6 mx-auto mb-3 text-center"> -->
+        <img
+          src="{{ template_data.movie.image.url }}"
+          class="rounded img-card-300"
+          style="height: 700px; width: auto; object-fit: cover;"
+        />
+      <!-- </div> -->
+    </div>
+  </div>
+</div>
+{% endblock content %}
