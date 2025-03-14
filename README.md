@@ -8,6 +8,8 @@ A movie store application using a movie database as models.
    ```sh
    git clone <repository-url>
    cd <repository-folder>
-   
+2. run the server
+   ```sh
+   python manage.py runserver
 
   
