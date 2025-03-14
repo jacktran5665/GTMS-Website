@@ -1,12 +1,13 @@
 # GTMS-CS2340
-Created a movie store using movie database as models 
 
+A movie store application using a movie database as models.
 
-To use this:
-git clone the repository then run the manage.py
+## Installation
 
-MacOS:
-python3 manage.py runserver
+1. Clone the repository:
+   ```sh
+   git clone <repository-url>
+   cd <repository-folder>
+   
 
-Windows:
-python manage.py runserver
+  
