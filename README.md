@@ -2,6 +2,9 @@
 
 A movie store application using a movie database as models.
 
+
+Site introduction: https://sites.google.com/view/cs2340project1vishva2/home?authuser=1
+
 ## Installation
 
 1. Clone the repository:
